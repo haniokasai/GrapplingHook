@@ -14,6 +14,13 @@ use pocketmine\utils\Config;
 
 class pressurejump extends PluginBase implements Listener{
 
+	double hookThreshold;
+	double hForceMult;
+	double hForceMax;
+	double vForceMult;
+	double vForceBonus;
+	double vForceMax;
+	
     public function onEnable(){
 		    public function onEnable(){
       $this->getServer()->getPluginManager()->registerEvents($this, $this);
