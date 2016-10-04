@@ -3,6 +3,7 @@
 namespace grapplinghook;
 
 use pocketmine\block\Block;
+use pocketmine\entity\Entity;
 use pocketmine\event\Listener;
 use pocketmine\math\Vector3;
 use pocketmine\Player;
