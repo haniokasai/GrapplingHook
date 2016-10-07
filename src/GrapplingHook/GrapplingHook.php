@@ -22,16 +22,25 @@ class pressurejump extends PluginBase implements Listener{
 	double vForceBonus;
 	double vForceMax;
 	
+	@Override
     public function onEnable(){
-		    public function onEnable(){
-      $this->getServer()->getPluginManager()->registerEvents($this, $this);
-      if(!file_exists($this->getDataFolder())){
-        $this->getLogger()->info("§b建立GrapplingHook資料夾中!");
-        @mkdir($this->saveDataFolder());
-	  }
+	FileConfiguration config;
+		
+		config = getConfig();
+		hookThreshold = config.getDouble("hook-threshold");
+		hForceMult = config.getDouble("horizontal-force-mult");
+		hForceMax = config.getDouble("horizontal-force-max");
+		vForceMult = config.getDouble("vertical-force-mult");
+		vForceBonus = config.getDouble("vertical-force-bonus");
+		vForceMax = config.getDouble("vertical-force-max");
+		
+		saveDefaultConfig();
+	
+		getServer()->getPluginManager()->registerEvents(this, this);
+	}
     public function onDisable(){
         $this->getLogger()->info("§a飛天鉤(GrapplingHook)已關閉");
     }
     
-    public function 
+    public function onPlayerFish(PlayerFishEvent event){
 		  
