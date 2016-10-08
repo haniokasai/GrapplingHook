@@ -5,6 +5,8 @@ namespace grapplinghook;
 use pocketmine\block\Block;
 use pocketmine\entity\Entity;
 use pocketmine\event\Listener;
+use pocketmine\event\player\PlayerFishEvent;
+use pocketmine\event\player\PlayerEvent;
 use pocketmine\math\Vector3;
 use pocketmine\Player;
 use pocketmine\plugin\Plugin;
@@ -13,7 +15,7 @@ use pocketmine\plugin\PluginManager;
 use pocketmine\Server;
 use pocketmine\utils\Config;
 
-class pressurejump extends PluginBase implements Listener{
+class GrapplingHook extends PluginBase implements Listener{
 
 	double hookThreshold;
 	double hForceMult;
@@ -34,7 +36,7 @@ class pressurejump extends PluginBase implements Listener{
 		$vForceBonus = config->getDouble("vertical-force-bonus");
 		$vForceMax = config->getDouble("vertical-force-max");
 		
-		->saveDefaultConfig();
+		@mkdir->saveDefaultConfig();
 	
 		getServer()->getPluginManager()->registerEvents(this, this);
 	}
@@ -49,7 +51,7 @@ class pressurejump extends PluginBase implements Listener{
 		Player = player;
 		double = d;
 	    
-	        if (event->getState()->equals(PlayerFishEvent->State->IN_GROUND) || event->getState()->equals(PlayerFishEvent->State->FAILED_ATTEMPT)) {
+	        if (event->getState()->equals(PlayerFishEvent::State_IN_GROUND) || event->getState()->equals->(PlayerFishEvent::State_FAILED_ATTEMPT)) {
 			$entity = event->getHook();
 			$block = entity->getWorld()->getBlockAt(entity->getLocation()->add(0.0, -hookThreshold, 0.0));
 			
