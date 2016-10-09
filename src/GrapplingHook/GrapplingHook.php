@@ -16,14 +16,14 @@ use pocketmine\Server;
 use pocketmine\utils\Config;
 
 class GrapplingHook extends PluginBase implements Listener{
-
+       /*
 	double hookThreshold;
 	double hForceMult;
 	double hForceMax;
 	double vForceMult;
 	double vForceBonus;
 	double vForceMax;
-	
+	*/
 	@Override
     public function onEnable(){
 	FileConfiguration config;
@@ -36,21 +36,22 @@ class GrapplingHook extends PluginBase implements Listener{
 		$vForceBonus = config->getDouble("vertical-force-bonus");
 		$vForceMax = config->getDouble("vertical-force-max");
 		
-		@mkdir->saveDefaultConfig();
+		$this->saveDefaultConfig();
 	
-		getServer()->getPluginManager()->registerEvents(this, this);
+		$this->getServer()->getPluginManager()->registerEvents(this, this);
 	}
     public function onDisable(){
         $this->getLogger()->info("§a飛天鉤(GrapplingHook)已關閉");
     }
     
     public function onPlayerFish(PlayerFishEvent event){
+	       /*
 	        Vector = vector3;
 		Entity = entity;
 		Block = block;
 		Player = player;
 		double = d;
-	    
+	       */
 	        if (event->getState()->equals(PlayerFishEvent::State_IN_GROUND) || event->getState()->equals->(PlayerFishEvent::State_FAILED_ATTEMPT)) {
 			$entity = event->getHook();
 			$block = entity->getWorld()->getBlockAt(entity->getLocation()->add(0.0, -hookThreshold, 0.0));
